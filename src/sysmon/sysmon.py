@@ -114,7 +114,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.cpuinfo = np.zeros([self.len_data, self.s.cpu_core_count + 1])
         self.x = np.linspace(-self.len_data * self.wait_time_ms / 1000, 0,
                              num=self.len_data, endpoint=True)
-        self.label_8.setText(self.s.cpu_model_name)
+        self.label_8.setText(' '.join(self.s.cpu_model_name))
         self.plot_meminfo()
         self.plot_cpuinfo()
         self.plot_netinfo()

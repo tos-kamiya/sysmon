@@ -275,7 +275,14 @@ class sysinfo:
                 # cur_data = line.split(maxsplit=1)
                 line = line.replace('model name', '')
                 line = line.replace(':', '')
-                self.cpu_model_name = line
+                if line not in self.cpu_model_name:
+                    self.cpu_model_name.append(line)
+            if line.startswith("Model"):
+                if line not in self.cpu_model_name:
+                    self.cpu_model_name.append(line.split(':')[1].lstrip())
+            if line.startswith("Hardware"):
+                if line not in self.cpu_model_name:
+                    self.cpu_model_name.append(line.split(':')[1].lstrip())
             if "cpu cores" in line:
                 cur_data = line.split()
                 self.physical_cpu_core_count = cur_data[-1]
