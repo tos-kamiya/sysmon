@@ -6,7 +6,6 @@ import numpy as np
 import os
 from .gather_data import sysinfo
 import pkg_resources
-import qdarktheme
 
 SYSMON_THEME = os.getenv('SYSMON_THEME', 'default')
 
@@ -651,15 +650,6 @@ def main():
                           os.environ.get('PATH'))
     app = QtWidgets.QApplication(sys.argv)
 
-    # Theme
-    if SYSMON_THEME == 'dark':
-        app.setStyleSheet(qdarktheme.load_stylesheet())
-    elif SYSMON_THEME == 'light' or SYSMON_THEME == 'default':
-        app.setStyleSheet(qdarktheme.load_stylesheet('light'))
-    elif SYSMON_THEME == 'old':
-        # Do nothing and get the old theme
-        # Also works for unknown SYSMON_THEME env
-        pass
     main = MainWindow()
 
     main.show()

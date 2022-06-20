@@ -25,7 +25,8 @@ setuptools.setup(
     install_requires=[
         "pyqtgraph",
         "pyqt5>=5",
-        "numpy>=1"
+        "numpy>=1",
+        "pyamdgpuinfo",
     ],
     package_data={'sysmon': ['*.ui']},
     include_package_data=True,
